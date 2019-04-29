@@ -5,6 +5,8 @@ import android.text.TextUtils;
 enum CpuArch {
     x86("0dd4dbad305ff197a1ea9e6158bd2081d229e70e"),
     ARMv7("871888959ba2f063e18f56272d0d98ae01938ceb"),
+    ARMv8("871888959ba2f063e18f56272d0d98ae01938cec"),
+    x86_64("871888959ba2f063e18f56272d0d98ae01938ced"),
     NONE(null);
 
     private String sha1;
