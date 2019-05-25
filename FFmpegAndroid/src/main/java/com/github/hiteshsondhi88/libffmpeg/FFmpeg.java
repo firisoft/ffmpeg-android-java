@@ -33,6 +33,7 @@ public class FFmpeg implements FFmpegInterface {
         return instance;
     }
 
+// Note: not in use anymore, we load using FFMPEGLocator
     @Override
     public void loadBinary(FFmpegLoadBinaryResponseHandler ffmpegLoadBinaryResponseHandler) throws FFmpegNotSupportedException {
         String cpuArchNameFromAssets = null;

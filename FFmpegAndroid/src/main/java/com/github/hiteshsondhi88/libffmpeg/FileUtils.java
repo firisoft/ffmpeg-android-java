@@ -52,7 +52,13 @@ class FileUtils {
 	}
 
     static String getFFmpeg(Context context) {
-        return getFilesDirectory(context).getAbsolutePath() + File.separator + FileUtils.ffmpegFileName;
+        String tempDirectory = System.getProperty("java.io.tmpdir");
+        File f = new File(tempDirectory, "ffmpeg");
+        if (f.exists() && f.length() > 1000000 && f.canExecute()) {
+            return f.getAbsolutePath();
+        } else {
+            return "ffmpeg"; //TODO: throw an exception 
+        }
     }
 
     static String getFFmpeg(Context context, Map<String,String> environmentVars) {
