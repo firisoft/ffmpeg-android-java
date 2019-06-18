@@ -15,13 +15,7 @@ class CpuArchHelper {
         else {
             // check if device is armeabi
             if (Build.CPU_ABI.equals(getArmeabiv7CpuAbi())) {
-                ArmArchHelper cpuNativeArchHelper = new ArmArchHelper();
-                String archInfo = cpuNativeArchHelper.cpuArchFromJNI();
-                // check if device is arm v7
-                if (cpuNativeArchHelper.isARM_v7_CPU(archInfo)) {
-                    // check if device is neon
-                    return CpuArch.ARMv7;
-                }
+                return CpuArch.ARMv7;
                 // check if device is arm64
             } else if (Build.CPU_ABI.equals(getArm64CpuAbi())) {
                 return CpuArch.ARMv8;
