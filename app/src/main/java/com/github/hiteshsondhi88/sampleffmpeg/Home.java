@@ -64,8 +64,13 @@ public class Home extends Activity implements View.OnClickListener {
 
     private void loadFFMpegBinary() {
         try {
-            new AndroidFFMPEGLocator(this);
-        } catch (Exception e) {
+            ffmpeg.loadBinary(new LoadBinaryResponseHandler() {
+                @Override
+                public void onFailure() {
+                    showUnsupportedExceptionDialog();
+                }
+            });
+        } catch (FFmpegNotSupportedException e) {
             showUnsupportedExceptionDialog();
         }
     }
